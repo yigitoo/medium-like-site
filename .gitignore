@@ -1,6 +1,10 @@
 .idea
 *.iml
 
+yarn.lock
+yarn-error.log
+package-lock.json
+
 .DS_Store
 node_modules
 /build
