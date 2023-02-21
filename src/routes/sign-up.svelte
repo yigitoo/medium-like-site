@@ -5,10 +5,10 @@
 
 	let error;
 
-	async function handleSubmit({ detail: { email, password } }) {
+	async function handleSubmit({ detail: { email, username, password, category} }) {
 		const response = await fetch('/api/sign-up', {
 			method: 'POST',
-			body: JSON.stringify({ email, password }),
+			body: JSON.stringify({ email, username, password, category }),
 			headers: {
 				'Content-Type': 'application/json',
 			},

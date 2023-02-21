@@ -7,7 +7,9 @@
 	let email = '';
 	let password = '';
 	let confirmPassword = '';
-	let error;
+	let username = '';
+	let category = '';
+	let error; 
 	let confirmPasswordInputRef;
 
 	const dispatch = createEventDispatcher();
@@ -22,13 +24,17 @@
 
 		dispatch('submit', {
 			email,
+			username,
 			password,
+			category
 		});
 	}
 </script>
 
 <form on:submit|preventDefault={submit} class="space-y-5 {$$props.class}">
 	<Input label="Email" id="email" name="email" type="email" bind:value={email} />
+	<Input label="Username" id="username" name="username" type="text" bind:value={username} />
+	<Input label="Category" id="category" name="category" type="text" bind:value={category} />
 	<Input label="Password" id="password" name="password" type="password" bind:value={password} />
 	<Input
 		label="Confirm Password"

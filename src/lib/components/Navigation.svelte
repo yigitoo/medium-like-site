@@ -9,7 +9,7 @@
 		},
 		{
 			href: '/protected',
-			name: `${$session.user ? '🔓' : '🔒'} Explore`,
+			name: `${$session.user ? '🔓' : '🔒'} Explore others opinion`,
 		},
 	];
 
@@ -19,7 +19,6 @@
 		await goto('/sign-in');
 	}
 </script>
-
 <header class="bg-indigo-600">
 	<nav class="container mx-auto">
 		<div class="w-full py-4 flex items-center justify-between">

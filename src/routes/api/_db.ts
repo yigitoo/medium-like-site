@@ -1,6 +1,8 @@
 import { v4 as uuidv4 } from 'uuid';
 import * as mongodb from 'mongodb';
 import User from './db/user';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const client: mongodb.MongoClient = new mongodb.MongoClient(process.env.MONGO_URI || 'mongodb+srv://localhost:27017/');
 await client.connect();
@@ -17,16 +19,17 @@ export const getUserByEmail = async (email) => {
 	return Promise.resolve(existingUser);
 };
 
-export const registerUser = (user) => {
+export const registerUser = async (user: User) => {
 	const existingUser = users.find((u) => (u.email === user.email) && (u.name === user.name));
 	if (existingUser) return Promise.reject(new Error('User already exists'));
+	await db.collection<User>('users').insertOne(user); 
 	users.push(user);
 	return Promise.resolve(user);
 };
 
 export const createSession = (email) => {
 	const session = {
-		id: uuidv4(),
+		id: uuidv4() + uuidv4() + uuidv4(),
 		email,
 	};
 	sessions.push(session);

@@ -20,5 +20,9 @@
 	// import { session } from '$app/stores';
 	// $session.user;
 </script>
-
-<h1 class="text-2xl font-semibold text-center">Hi! You are registered with email {user.email}.</h1>
+<svelte:head>
+	<title>
+		Explore
+	</title>
+</svelte:head>
+<h1 class="text-2xl font-semibold text-center">Welcome to our blog site {user.username}!.</h1>
