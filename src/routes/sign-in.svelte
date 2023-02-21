@@ -2,6 +2,7 @@
 	import SignInForm from '$lib/components/SignInForm.svelte';
 	import { goto } from '$app/navigation';
 	import { session } from '$app/stores';
+	import Title from '../lib/components/Title.svelte';
 
 	let error;
 
@@ -24,8 +25,8 @@
 		error = body.message;
 	}
 </script>
-
-<h1 class="text-2xl font-semibold text-center">Sign In</h1>
+<Title val="Login Page"/>
+<h1 class="text-2xl font-semibold text-center">Login</h1>
 {#if error}
 	<p class="mt-3 text-red-500 text-center font-semibold">{error}</p>
 {/if}

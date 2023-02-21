@@ -15,14 +15,9 @@
 </script>
 
 <script>
-	export let user;
-
+	import Title from '$lib/components/Title.svelte';
 	// import { session } from '$app/stores';
 	// $session.user;
 </script>
-<svelte:head>
-	<title>
-		Explore
-	</title>
-</svelte:head>
-<h1 class="text-2xl font-semibold text-center">Welcome to our blog site {user.username}!.</h1>
+<Title val="Search Page"/>
+<h1 class="text-2xl font-semibold text-center">Search page!.</h1>

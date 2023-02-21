@@ -1,4 +1,12 @@
-# Svelte Auth
+# Blog site
+
+## Todo
+
+- [ ] Using hashes for passwords.
+- [ ] Add profile pages.
+- [ ] Work about categories more.
+- [ ] Add AI for homepage blogs and followers blog
+- [ ] Add notification system. (for new post from followed bloggers and suggestions).
 
 This demo app is part of a tutorial explaining how to implement authentication using cookies in SvelteKit.
 
@@ -11,14 +19,4 @@ npm install
 npm run dev
 ```
 
-You can log in with this dummy user:
-
-```
-email === mail@example.com
-password === thisisnotsecret
-```
-
-## Security ⚠
-
-️Be aware that this demo app showcases how to deal with authentication in SvelteKit. It is not production ready. Do
-never store sensitive data like passwords in plain text.
+️Be aware that this demo app showcases how to deal with authentication in SvelteKit. It is not production ready. Do never store sensitive data like passwords in plain text.
