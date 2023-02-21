@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import * as mongodb from 'mongodb';
 import User from './db/user';
 import dotenv from 'dotenv';
+import { goto } from '$app/navigation';
 dotenv.config();
 
 const client: mongodb.MongoClient = new mongodb.MongoClient(process.env.MONGO_URI || 'mongodb+srv://localhost:27017/');
@@ -9,9 +10,18 @@ await client.connect();
 const db: mongodb.Db = client.db(process.env.DB_NAME || "blog");
 
 let users: User[] = (await db.collection<User>('users').find<User>({}).toArray()) as User[];
-$: users = (await db.collection<User>('users').find<User>({}).toArray()) as User[];
 
 let sessions: { id: string; email: any }[] = [];
+
+export const getUserById = async (id) => {
+	const existingUser = users.find(user => user.id?.toString() === id)
+	if (existingUser) {
+		return Promise.resolve(existingUser)
+	} else {
+		return Promise.resolve(null);
+	}
+};
+
 
 export const getUserByEmail = async (email) => {
 	const existingUser = users.find((user) => user.email === email);

@@ -8,8 +8,8 @@
 			name: 'Home',
 		},
 		{
-			href: '/protected',
-			name: `${$session.user ? '🔓' : '🔒'} Explore others opinion`,
+			href: '/search',
+			name: `Search and explore ${$session.user ? '' : '(🔒)'}`,
 		},
 	];
 
@@ -33,6 +33,9 @@
 			</div>
 			<div class="ml-10 space-x-4">
 				{#if $session.user}
+					<a href={`/profile/${$session}`}>
+
+					</a>
 					<button
 						on:click={handleSignOut}
 						class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
@@ -44,7 +47,7 @@
 						href="/sign-in"
 						class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
 					>
-						Sign in
+						Login
 					</a>
 					<a
 						href="/sign-up"
@@ -53,6 +56,7 @@
 						Sign up
 					</a>
 				{/if}
+				<span class="mx-10 px-1"></span>
 			</div>
 		</div>
 	</nav>

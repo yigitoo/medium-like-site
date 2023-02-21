@@ -1,4 +1,4 @@
-<script context="module">
+<script context="module">	
 	export async function load({ session }) {
 		if (!session?.user) {
 			return {
@@ -20,4 +20,5 @@
 	// $session.user;
 </script>
 <Title val="Search Page"/>
-<h1 class="text-2xl font-semibold text-center">Search page!.</h1>
+<h1 class="text-2xl font-semibold text-center">Search page!</h1>
+{props.user}

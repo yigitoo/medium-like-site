@@ -1,6 +1,8 @@
 <script>
-	import Title from "../lib/components/Title.svelte";
+	import Title from "$lib/components/Title.svelte";
 
 </script>
 <Title val="Main Page"/>
-<h1 class="text-2xl font-semibold text-center">Hi</h1>
+<div class="ml-10 px-1">
+	<h1 class="text-2xl font-semibold">Hi, I prepared some post for you!😊</h1>
+</div>
