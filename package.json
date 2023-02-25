@@ -1,5 +1,5 @@
 {
-	"name": "sveltekit-auth",
+	"name": "yigits-blog-site",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "svelte-kit dev",

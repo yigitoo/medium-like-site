@@ -1,15 +1,17 @@
 <script context="module">
-import dotenv from 'dotenv'
-import * as mongodb from 'mongodb'
-import { getUserByName } from '../api/_db' 
-dotenv.config();
-
-export async function load({ params }) {
-  const user = await getUserByName(params.username)
-  if (user) {
+export async function load({ fetch, params }) {
+  const response = await fetch('/api/profile', {
+    method: 'POST',
+    body: JSON.stringify({ username: params.username }),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+  const body = await response.json();
+  if (response.ok) {
     return {
       status: 200,
-      ...user
+      user: body
     }
   } else {
     throw Error("User not found!");
@@ -17,7 +19,9 @@ export async function load({ params }) {
 }
 </script>
 <script>
-	export let data;
+  import { page } from "$app/stores";
 </script>
 
-{data.name}
+<div>
+{JSON.stringify($page.data)}
+</div>
