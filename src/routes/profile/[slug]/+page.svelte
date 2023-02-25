@@ -17,4 +17,3 @@
 {:else}
   {user.name}
 {/if}
-{data.name}

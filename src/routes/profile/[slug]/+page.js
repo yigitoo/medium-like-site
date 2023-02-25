@@ -14,17 +14,15 @@ const findUser = async (username) => {
 }
 
 export async function load({ params }) {
-  const user = await findUser(params.username);
+  const user = findUser(params.slug);
 
-  if (user) {
-    return {
-      status: 200,
-      user: user
-    }
-  } else {
-    return {
-      status: 404,
-      message: "f*ck men!"
-    }
+  return {
+    status: 200,
+    user: user
   }
+   /*
+  return {
+    status: 404,
+    message: "f*ck men!"
+  } */
 }
