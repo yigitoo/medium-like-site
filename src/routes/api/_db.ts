@@ -9,8 +9,14 @@ const client: mongodb.MongoClient = new mongodb.MongoClient(process.env.MONGO_UR
 await client.connect();
 const db: mongodb.Db = client.db(process.env.DB_NAME || "blog");
 
-let users: User[] = (await db.collection<User>('users').find<User>({}).toArray()) as User[];
-
+const getDb = async () => {
+  return Promise.resolve((await db.collection<User>('users').find<User>({}).toArray()) as User[]); 
+}
+let users_promise: Promise<User[]> = getDb();
+let users: User[]
+users_promise
+	.then((val) => users = val)
+	.catch((e) => console.error(e))
 let sessions: { id: string; email: any }[] = [];
 
 export const getUserById = async (id) => {
