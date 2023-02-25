@@ -17,5 +17,6 @@ export async function get({ request }) {
 				expires: new Date(0),
 			}),
 		},
+		redirect: "/"
 	};
 }

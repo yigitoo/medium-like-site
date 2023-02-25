@@ -5,6 +5,7 @@
 	export let type = 'text';
 	export let name;
 	export let required = false;
+	export let autocomplete = "off";
 
 	export let inputRef = null;
 
@@ -19,6 +20,7 @@
 	</label>
 	<div class="mt-1">
 		<input
+			{autocomplete}
 			use:setType
 			{name}
 			{id}

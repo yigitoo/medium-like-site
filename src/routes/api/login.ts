@@ -25,7 +25,7 @@ export async function post({ request }) {
 				httpOnly: true,
 				sameSite: 'strict',
 				secure: process.env.NODE_ENV === 'production',
-				maxAge: 60 * 60 * 24 * 7, // one week
+				maxAge: 60 * 60 * 24 * 30 // one month
 			}),
 		},
 		body: {

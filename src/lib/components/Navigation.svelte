@@ -16,9 +16,10 @@
 	async function handleSignOut() {
 		await fetch('/api/sign-out');
 		$session = {};
-		await goto('/sign-in');
+		await goto('/login');
 	}
 </script>
+
 <header class="bg-indigo-600">
 	<nav class="container mx-auto">
 		<div class="w-full py-4 flex items-center justify-between">
@@ -33,9 +34,11 @@
 			</div>
 			<div class="ml-10 space-x-4">
 				{#if $session.user}
-					<a href="/profile/{$session.user._id}">
-						<button class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">
-							{$session.user.name}
+					<a href="/profile/{$session.user.name}">
+						<button
+							class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
+						>
+							<b>{$session.user.name}</b>
 						</button>
 					</a>
 					<button
@@ -46,7 +49,7 @@
 					</button>
 				{:else}
 					<a
-						href="/sign-in"
+						href="/login"
 						class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75"
 					>
 						Login
@@ -58,7 +61,7 @@
 						Sign up
 					</a>
 				{/if}
-				<span class="mx-10 px-1"></span>
+				<span class="mx-10 px-1" />
 			</div>
 		</div>
 	</nav>

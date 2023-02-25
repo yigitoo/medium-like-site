@@ -5,7 +5,7 @@
 
 	let error;
 
-	async function handleSubmit({ detail: { email, username, password, category} }) {
+	async function handleSubmit({ detail: { email, username, password, category } }) {
 		const response = await fetch('/api/sign-up', {
 			method: 'POST',
 			body: JSON.stringify({ email, username, password, category }),
@@ -17,7 +17,7 @@
 		const body = await response.json();
 		if (response.ok) {
 			// session from getSession hook will otherwise not be set before navigation
-			// that would trigger redirect from /protected back to /sign-in
+			// that would trigger redirect from /protected back to /login
 			$session = body;
 			await goto('/');
 		}
