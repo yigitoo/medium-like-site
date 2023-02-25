@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import * as mongodb from 'mongodb';
 import User from './db/user';
 import dotenv from 'dotenv';
-import { goto } from '$app/navigation';
+
 dotenv.config();
 
 const client: mongodb.MongoClient = new mongodb.MongoClient(process.env.MONGO_URI || 'mongodb+srv://localhost:27017/');
@@ -21,6 +21,14 @@ export const getUserById = async (id) => {
 		return Promise.resolve(null);
 	}
 };
+
+export const getUserByName = async (name) => {
+	const existingUser = users.find(user => user.name === name)
+	if (existingUser)
+		return Promise.resolve(existingUser);
+	else
+		return Promise.resolve(null);
+}
 
 
 export const getUserByEmail = async (email) => {
