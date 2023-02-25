@@ -33,8 +33,10 @@
 			</div>
 			<div class="ml-10 space-x-4">
 				{#if $session.user}
-					<a href={`/profile/${$session}`}>
-
+					<a href="/profile/{$session.user._id}">
+						<button class="inline-block bg-indigo-500 py-2 px-4 border border-transparent rounded-md text-base font-medium text-white hover:bg-opacity-75">
+							{$session.user.name}
+						</button>
 					</a>
 					<button
 						on:click={handleSignOut}

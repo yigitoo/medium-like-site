@@ -29,9 +29,7 @@ export async function post({ request }) {
 			}),
 		},
 		body: {
-			user: {
-				email,
-			},
+			user: user
 		},
 	};
 }
